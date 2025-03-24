@@ -167,39 +167,6 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 ```
-# SHA-256 Implementation
-
-## Helper Functions
-
-### `void print_hash(const uint8_t *hash)`
-Displays the hash as a hexadecimal string.
-```c
-void print_hash(const uint8_t *hash) {
-    for (int i = 0; i < 32; i++) {
-        printf("%02x", hash[i]);
-    }
-    printf("\n");
-}
-```
-
-### `int main(int argc, char *argv[])`
-Command-line interface that takes input and prints the hash.
-```c
-int main(int argc, char *argv[]) {
-    if (argc < 2) {
-        printf("Usage: %s \"message to hash\"\n", argv[0]);
-        return 1;
-    }
-    
-    uint8_t hash[32];
-    sha256((uint8_t*)argv[1], strlen(argv[1]), hash);
-    
-    printf("SHA-256 hash of \"%s\":\n", argv[1]);
-    print_hash(hash);
-    
-    return 0;
-}
-```
 
 ## Notes
 - This implementation is intended for educational purposes.
